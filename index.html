@@ -152,14 +152,93 @@ body{background:#f5f8fd}
 .stat strong{transition:.3s}
 .stat:hover strong{transform:scale(1.04)}
 
+
+.welcome-screen{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;overflow:hidden;background:#061a45;color:#fff;transition:opacity .55s ease,visibility .55s ease}
+.welcome-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
+.welcome-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,rgba(19,82,177,.48),transparent 42%),linear-gradient(135deg,#020d27,#082c69 55%,#020b21)}
+.welcome-bg:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:42px 42px}
+.welcome-bg:after{content:"";position:absolute;width:600px;height:600px;border:1px solid rgba(255,215,90,.18);border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 70px rgba(255,215,90,.025),0 0 0 140px rgba(255,215,90,.018)}
+.welcome-content{position:relative;text-align:center;width:min(760px,92%);padding:38px 25px}
+.welcome-logo{width:115px;height:115px;margin:0 auto 20px;border-radius:50%;background:#fff;padding:7px;box-shadow:0 0 0 4px rgba(255,215,90,.75),0 0 50px rgba(255,215,90,.24);animation:welcomeFloat 3s ease-in-out infinite}
+.welcome-logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+.welcome-kicker{font-size:12px;letter-spacing:5px;color:#ffd75a;font-weight:900;margin-bottom:8px}
+.welcome-content h1{font-size:clamp(42px,8vw,76px);letter-spacing:3px;margin:0;font-weight:950}
+.welcome-content h2{font-size:clamp(15px,2.3vw,24px);margin:5px 0 13px;font-weight:800}
+.welcome-content p{font-family:Georgia,serif;font-style:italic;color:#f4d779;font-size:clamp(18px,2.5vw,28px);margin:0}
+.welcome-line{width:150px;height:2px;margin:23px auto 16px;background:linear-gradient(90deg,transparent,#ffd75a,transparent)}
+.welcome-meta{font-size:12px;letter-spacing:1.8px;color:#c7d5f1;font-weight:800}
+.welcome-btn{margin-top:30px;border:1px solid #ffd75a;border-radius:999px;background:linear-gradient(135deg,#ffd75a,#c99512);color:#071a42;padding:15px 30px;font-weight:950;font-size:15px;cursor:pointer;box-shadow:0 12px 35px rgba(0,0,0,.3);transition:.25s}
+.welcome-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 42px rgba(255,215,90,.25)}
+.welcome-btn span{margin-left:8px;font-size:20px}
+@keyframes welcomeFloat{50%{transform:translateY(-7px)}}
+@media(max-width:600px){.welcome-logo{width:90px;height:90px}.welcome-content{padding:25px 15px}.welcome-meta{line-height:1.7}}
+
+
+.why-section,.process-section,.faq-section{padding:86px 0}
+.why-section{background:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.why-card{background:#f7f9fd;border:1px solid #e5eaf3;border-radius:20px;padding:25px;transition:.25s}
+.why-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(6,26,69,.10);border-color:#d5b23e}
+.why-icon{font-size:30px;margin-bottom:16px}.why-card h3{margin:0 0 8px;color:var(--navy)}.why-card p{margin:0;color:var(--muted);line-height:1.6}
+.process-section{background:#f5f8fd}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.process-card{position:relative;background:#fff;border:1px solid #e3e8f1;border-radius:22px;padding:30px;overflow:hidden}
+.process-card span{font-size:54px;font-weight:950;color:#e8edf5;position:absolute;right:18px;top:8px}
+.process-card h3{position:relative;margin:0 0 9px;color:var(--navy)}.process-card p{position:relative;color:var(--muted);line-height:1.6;margin:0}
+.faq-section{background:#fff}
+.faq-list{max-width:850px;margin:auto;display:grid;gap:12px}
+.faq-list details{border:1px solid #e1e7f0;border-radius:15px;background:#f8faff;padding:18px 20px}
+.faq-list summary{cursor:pointer;font-weight:900;color:var(--navy)}
+.faq-list p{color:var(--muted);line-height:1.65;margin:13px 0 0}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.why-section,.process-section,.faq-section{padding:62px 0}.why-grid,.process-grid{grid-template-columns:1fr}}
+
+
+.wallet-section{padding:86px 0;background:#f5f8fd}
+.wallet-grid .card{background:#fff}
+.wallet-grid .icon{background:#eef7ef}
+
 </style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"LocalBusiness",
+ "name":"AL SHORAIM Mobile Communication & Photo Studio",
+ "description":"All Digital Services Under One Roof",
+ "telephone":"+923472836851",
+ "address":{
+   "@type":"PostalAddress",
+   "streetAddress":"Shop No. 1, Plot No. 164, Sector 6B Mehran Town, Korangi Industrial Area",
+   "addressLocality":"Karachi",
+   "addressCountry":"PK"
+ },
+ "openingHoursSpecification":[]
+}
+</script>
+
 </head>
 <body>
+
+<div class="welcome-screen" id="welcomeScreen" aria-hidden="false">
+  <div class="welcome-bg"></div>
+  <div class="welcome-content">
+    <div class="welcome-logo"><img src="assets/logo.png" alt="AL SHORAIM"></div>
+    <div class="welcome-kicker">WELCOME TO</div>
+    <h1>AL SHORAIM</h1>
+    <h2>Mobile Communication &amp; Photo Studio</h2>
+    <p>All Digital Services Under One Roof</p>
+    <div class="welcome-line"></div>
+    <div class="welcome-meta">Since 2022 • Fast Service • Best Quality • Best Price</div>
+    <button class="welcome-btn" id="enterWebsite" type="button">Enter Website <span>→</span></button>
+  </div>
+</div>
+
 <div class="topbar"><div class="container"><span>📍 Shop No. 1, Plot No. 164, Sector 6B Mehran Town, Korangi Industrial Area, Karachi</span><span>📞 0347-2836851</span></div></div>
 
 <nav>
  <div class="container navin">
-  <a class="brand" href="#home"><img src="logo.png" alt="AL SHORAIM Logo"><span>AL SHORAIM<small>Mobile Communication & Photo Studio</small></span></a>
+  <a class="brand" href="#home"><img src="assets/logo.png" alt="AL SHORAIM Logo"><span>AL SHORAIM<small>Mobile Communication & Photo Studio</small></span></a>
   <button class="menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">☰</button>
   <div class="navlinks">
    <a href="#home">Home</a><a href="#services">Services</a><a href="#esahulat">Nadra E-Sahulat</a><a href="#about">About</a><a href="#contact">Contact</a>
@@ -177,7 +256,7 @@ body{background:#f5f8fd}
    <p>AL SHORAIM Mobile Communication & Photo Studio — your convenient place for digital services, printing, photo studio work, mobile accessories, Nadra E-Sahulat services and everyday documentation needs.</p>
    <div class="hero-buttons"><a class="btn btn-gold" href="#services">Explore Services</a><a class="btn btn-light" href="https://wa.me/923472836851?text=Assalam-o-Alaikum%20AL%20SHORAIM%2C%20I%20want%20to%20ask%20about%20a%20service." target="_blank">💬 Ask on WhatsApp</a></div>
   </div>
-  <div class="hero-logo"><img src="logo.png" alt="AL SHORAIM Mobile Communication & Photo Studio"></div>
+  <div class="hero-logo"><img src="assets/logo.png" alt="AL SHORAIM Mobile Communication & Photo Studio"></div>
  </div>
 </section>
 
@@ -200,50 +279,49 @@ body{background:#f5f8fd}
 
   <div class="service-grid">
 <button class="card service-card" type="button" data-title="Passport Size Pictures" data-sub="Nadra, Passport &amp; Visa" data-desc="Professional passport-size photos prepared for official document needs." data-use="Passport, visa and official document photo needs." data-detail="We can guide you on the required photo size/background for your document.">
-<div class="icon">📸
+<div class="icon">📸</div><h3>Passport Size Pictures</h3><p>Nadra, Passport & Visa</p><span class="learn">View service details →</span>
+</button>
 <button class="card service-card" type="button" data-title="Stamp Paper Printing" data-sub="Stamp paper service" data-desc="Stamp paper printing and related document preparation for suitable requirements." data-use="Agreements and document requirements" data-detail="Bring the required information and document details. Availability and requirements may vary by document type.">
 <div class="icon">📜</div><h3>Stamp Paper Printing</h3><p>Stamp paper service</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Certificate Printing" data-sub="Professional certificate printing" data-desc="Clean, professional certificate printing for suitable personal, academic and organizational requirements." data-use="Certificates and official-looking documents" data-detail="Provide the final text/design and required size. We can prepare the print according to the supplied content.">
 <div class="icon">🏅</div><h3>Certificate Printing</h3><p>Professional certificate printing</p><span class="learn">View service details →</span>
 </button>
-</div><h3>Passport Size Pictures</h3><p>Nadra, Passport &amp; Visa</p><span class="learn">View service details →</span>
-</button>
 <button class="card service-card" type="button" data-title="CNIC, Passport, Visa &amp; Job Application Photos" data-sub="Official &amp; job application photos" data-desc="Photo service for CNIC, passport, visa and employment applications." data-use="Official documents and job applications." data-detail="Clean framing and background preparation for application photos.">
-<div class="icon">🪪</div><h3>CNIC, Passport, Visa &amp; Job Application Photos</h3><p>Official &amp; job application photos</p><span class="learn">View service details →</span>
+<div class="icon">🪪</div><h3>CNIC, Passport, Visa & Job Application Photos</h3><p>Official & job application photos</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="School &amp; College ID Photos" data-sub="Student ID photos" data-desc="ID-photo service for schools, colleges and student cards." data-use="School, college and student identification." data-detail="Suitable for student ID cards and academic records.">
-<div class="icon">🎓</div><h3>School &amp; College ID Photos</h3><p>Student ID photos</p><span class="learn">View service details →</span>
+<div class="icon">🎓</div><h3>School & College ID Photos</h3><p>Student ID photos</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Instant Photo Printing" data-sub="Quick photo prints" data-desc="Get your selected photos printed for personal or official use." data-use="Instant photo printing." data-detail="Bring your photo digitally or have it prepared in the studio.">
 <div class="icon">🖨️</div><h3>Instant Photo Printing</h3><p>Quick photo prints</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Document Scanning, Photocopy &amp; Printing" data-sub="Documents &amp; copies" data-desc="Scanning, photocopying and document printing in one place." data-use="Forms, documents, applications and copies." data-detail="Black &amp; white and color document work as required.">
-<div class="icon">📄</div><h3>Document Scanning, Photocopy &amp; Printing</h3><p>Documents &amp; copies</p><span class="learn">View service details →</span>
+<div class="icon">📄</div><h3>Document Scanning, Photocopy & Printing</h3><p>Documents & copies</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Photo Editing &amp; Background Change" data-sub="Photo editing" data-desc="Photo cleanup and background-change service for suitable images." data-use="Official photos and general photo editing." data-detail="Ask us about the background or editing requirement before processing.">
-<div class="icon">✨</div><h3>Photo Editing &amp; Background Change</h3><p>Photo editing</p><span class="learn">View service details →</span>
+<div class="icon">✨</div><h3>Photo Editing & Background Change</h3><p>Photo editing</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Mobile Accessories" data-sub="Mobile essentials" data-desc="Mobile accessories available at the shop." data-use="Everyday mobile accessory needs." data-detail="Visit the shop for currently available accessories.">
 <div class="icon">📱</div><h3>Mobile Accessories</h3><p>Mobile essentials</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Application Forms &amp; CV Resumes" data-sub="Forms &amp; CVs" data-desc="Application forms and CV/resume preparation assistance." data-use="Job applications, CVs and forms." data-detail="Bring your details/documents and we can help prepare the required format.">
-<div class="icon">📝</div><h3>Application Forms &amp; CV Resumes</h3><p>Forms &amp; CVs</p><span class="learn">View service details →</span>
+<div class="icon">📝</div><h3>Application Forms & CV Resumes</h3><p>Forms & CVs</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Photocopy, Color Copy, CV, Applications etc." data-sub="Copy &amp; document work" data-desc="Photocopy, color copy, CV and application-related work." data-use="Everyday document requirements." data-detail="Useful for office, school, college and job-application documents.">
-<div class="icon">✉️</div><h3>Photocopy, Color Copy, CV, Applications etc.</h3><p>Copy &amp; document work</p><span class="learn">View service details →</span>
+<div class="icon">✉️</div><h3>Photocopy, Color Copy, CV, Applications etc.</h3><p>Copy & document work</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="PVC ID Cards" data-sub="Student, Job, Clinic, etc." data-desc="PVC ID-card preparation and printing for suitable requirements." data-use="Student, job and clinic cards." data-detail="Provide the required information/design for card preparation.">
 <div class="icon">🪪</div><h3>PVC ID Cards</h3><p>Student, Job, Clinic, etc.</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Scan &amp; Email" data-sub="Digital document delivery" data-desc="Scan documents and send them by email." data-use="Applications, documents and digital copies." data-detail="Bring the document and email details.">
-<div class="icon">📧</div><h3>Scan &amp; Email</h3><p>Digital document delivery</p><span class="learn">View service details →</span>
+<div class="icon">📧</div><h3>Scan & Email</h3><p>Digital document delivery</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Railway Ticket Booking" data-sub="Ticket booking" data-desc="Railway ticket booking assistance." data-use="Travel booking requirements." data-detail="Ask about route/date availability before booking.">
 <div class="icon">🚆</div><h3>Railway Ticket Booking</h3><p>Ticket booking</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="Electricity, Gas &amp; Utility Bill Payments" data-sub="Utility payments" data-desc="Electricity, gas and utility bill payment service." data-use="Everyday household utility payments." data-detail="Bring the relevant bill/reference details.">
-<div class="icon">💡</div><h3>Electricity, Gas &amp; Utility Bill Payments</h3><p>Utility payments</p><span class="learn">View service details →</span>
+<div class="icon">💡</div><h3>Electricity, Gas & Utility Bill Payments</h3><p>Utility payments</p><span class="learn">View service details →</span>
 </button>
 <button class="card service-card" type="button" data-title="All Government Fees Payments" data-sub="Government fee payments" data-desc="Assistance with available government fee payments." data-use="Government applications and fee requirements." data-detail="Bring the relevant challan/reference details.">
 <div class="icon">🏛️</div><h3>All Government Fees Payments</h3><p>Government fee payments</p><span class="learn">View service details →</span>
@@ -270,9 +348,46 @@ body{background:#f5f8fd}
  </div>
 </section>
 
+
+<section id="wallet-services" class="wallet-section">
+ <div class="container">
+  <div class="section-head">
+   <div class="kicker">DIGITAL PAYMENTS</div>
+   <h2>Easypaisa &amp; JazzCash Services</h2>
+   <p>Available wallet, payment and transfer services — click any service for details.</p>
+  </div>
+  <div class="service-grid wallet-grid">
+   <button class="card service-card" type="button" data-title="Cash In / Cash Deposit" data-sub="Easypaisa / JazzCash" data-desc="Cash-in and wallet deposit assistance where available." data-use="Wallet cash deposit" data-detail="Bring the required wallet/account information.">
+<div class="icon">💸</div><h3>Cash In / Cash Deposit</h3><p>Easypaisa / JazzCash</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Cash Out / Cash Withdrawal" data-sub="Easypaisa / JazzCash" data-desc="Cash-out and withdrawal assistance where available." data-use="Wallet cash withdrawal" data-detail="Required account/verification details may be needed.">
+<div class="icon">💵</div><h3>Cash Out / Cash Withdrawal</h3><p>Easypaisa / JazzCash</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Mobile Load &amp; Recharge" data-sub="Easypaisa / JazzCash" data-desc="Mobile balance/recharge service through available wallet channels." data-use="Mobile recharge" data-detail="Provide the mobile number and required amount.">
+<div class="icon">📲</div><h3>Mobile Load & Recharge</h3><p>Easypaisa / JazzCash</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Utility Bill Payment" data-sub="Easypaisa / JazzCash" data-desc="Utility bill payment assistance through available wallet services." data-use="Electricity, gas and other supported bills" data-detail="Bring the current bill/reference information.">
+<div class="icon">🧾</div><h3>Utility Bill Payment</h3><p>Easypaisa / JazzCash</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Money Transfer" data-sub="Easypaisa / JazzCash" data-desc="Money transfer assistance through available wallet services." data-use="Sending money" data-detail="Required sender/receiver information may be needed.">
+<div class="icon">💰</div><h3>Money Transfer</h3><p>Easypaisa / JazzCash</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Bank / Wallet Transfer" data-sub="Digital payments" data-desc="Available bank or wallet transfer assistance." data-use="Bank and wallet transfers" data-detail="Bring the required account or wallet information.">
+<div class="icon">🏦</div><h3>Bank / Wallet Transfer</h3><p>Digital payments</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Mobile Account / Wallet Services" data-sub="Wallet facilitation" data-desc="Assistance with supported wallet-related services." data-use="Everyday wallet needs" data-detail="Available options depend on the relevant service/channel.">
+<div class="icon">📱</div><h3>Mobile Account / Wallet Services</h3><p>Wallet facilitation</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Other Easypaisa / JazzCash Services" data-sub="Available services" data-desc="Other services available through the relevant wallet channel may vary." data-use="Other wallet/payment needs" data-detail="Ask us about the specific service before processing.">
+<div class="icon">➕</div><h3>Other Easypaisa / JazzCash Services</h3><p>Available services</p><span class="learn">View service details →</span>
+</button>
+  </div>
+ </div>
+</section>
+
 <section id="esahulat" class="es">
  <div class="container">
-  <div class="section-head"><div class="kicker" style="color:#ffd75a">Nadra E-Sahulat</div><h2>Nadra Nadra E-Sahulat Services</h2><p>Our current website list includes the eight Nadra E-Sahulat services you selected.</p></div>
+  <div class="section-head"><div class="kicker" style="color:#ffd75a">Nadra E-Sahulat</div><h2>Nadra E-Sahulat Services</h2><p>Our current website list includes the eight Nadra E-Sahulat services you selected.</p></div>
   <div class="es-grid">
 <button class="card service-card" type="button" data-title="Biometric Verification" data-sub="Biometric verification service" data-desc="Biometric verification assistance through the available Nadra E-Sahulat service." data-use="Nadra E-Sahulat biometric facilitation." data-detail="Required identity/document information may be needed.">
 <div class="icon">👆</div><h3>Biometric Verification</h3><p>Biometric verification service</p><span class="learn">View service details →</span>
@@ -312,9 +427,34 @@ body{background:#f5f8fd}
  </div>
 </section>
 
+
+<section class="why-section" id="why-us">
+ <div class="container">
+  <div class="section-head"><div class="kicker">WHY AL SHORAIM</div><h2>One Shop. Many Digital Solutions.</h2><p>Simple, professional and convenient service for everyday digital work.</p></div>
+  <div class="why-grid">
+   <div class="why-card"><div class="why-icon">⚡</div><h3>Fast Service</h3><p>Quick handling of routine digital, printing and documentation work.</p></div>
+   <div class="why-card"><div class="why-icon">🎯</div><h3>Professional Work</h3><p>Clean presentation and careful handling of your supplied information and documents.</p></div>
+   <div class="why-card"><div class="why-icon">🏪</div><h3>One Roof</h3><p>Photo, print, document, mobile and digital services together in one convenient place.</p></div>
+   <div class="why-card"><div class="why-icon">💬</div><h3>Easy WhatsApp Contact</h3><p>Ask about a service before visiting and get service-specific guidance.</p></div>
+  </div>
+ </div>
+</section>
+
+
+<section class="process-section">
+ <div class="container">
+  <div class="section-head"><div class="kicker">HOW IT WORKS</div><h2>Simple 3-Step Service</h2><p>No complicated process — choose, ask and visit.</p></div>
+  <div class="process-grid">
+   <div class="process-card"><span>01</span><h3>Choose a Service</h3><p>Search or click any service to see its information.</p></div>
+   <div class="process-card"><span>02</span><h3>Ask on WhatsApp</h3><p>Send a service-specific inquiry directly to AL SHORAIM.</p></div>
+   <div class="process-card"><span>03</span><h3>Visit the Shop</h3><p>Bring the required document or information and get your work done.</p></div>
+  </div>
+ </div>
+</section>
+
 <section id="about">
  <div class="container about-grid">
-  <div class="poster"><img src="services-poster.png" alt="AL SHORAIM services poster"></div>
+  <div class="poster"><img src="assets/services-poster.png" alt="AL SHORAIM services poster"></div>
   <div>
    <div class="kicker">About AL SHORAIM</div><h2>One Place. Many Digital Services.</h2>
    <p style="color:var(--muted);line-height:1.8">AL SHORAIM Mobile Communication & Photo Studio brings everyday digital, documentation, printing, photo studio and facilitation services together under one roof.</p>
@@ -353,6 +493,19 @@ body{background:#f5f8fd}
   <a class="btn btn-gold modal-wa" id="modalWa" target="_blank">💬 Ask About This Service</a>
  </div>
 </div>
+
+
+<section class="faq-section" id="faq">
+ <div class="container">
+  <div class="section-head"><div class="kicker">QUICK ANSWERS</div><h2>Frequently Asked Questions</h2><p>Common questions before visiting.</p></div>
+  <div class="faq-list">
+   <details><summary>Which services are available?</summary><p>Our website lists photo studio, printing, documentation, mobile accessories and Nadra E-Sahulat services currently offered or facilitated at the shop.</p></details>
+   <details><summary>Can I ask about a service on WhatsApp?</summary><p>Yes. Open any service and use the WhatsApp inquiry button. The selected service name is included in the message.</p></details>
+   <details><summary>Do I need to bring documents?</summary><p>For document, verification, payment and application services, the required documents or reference information can vary. Ask us before visiting.</p></details>
+   <details><summary>Can I use the website on my phone?</summary><p>Yes. The website is designed to work on desktop, tablet and mobile screens.</p></details>
+  </div>
+ </div>
+</section>
 
 <footer><div class="container foot"><div><strong>AL SHORAIM MOBILE COMMUNICATION & PHOTO STUDIO</strong><br><span>All Digital Services Under One Roof • Since 2022</span></div><div>Fast Service • Best Quality • Best Price</div></div></footer>
 <a class="whatsapp" href="https://wa.me/923472836851" target="_blank" aria-label="WhatsApp">☏</a>
@@ -417,5 +570,17 @@ const observer=new IntersectionObserver(entries=>{
 counterEls.forEach(el=>observer.observe(el));
 
 </script>
+
+<script>
+const welcomeScreen=document.getElementById('welcomeScreen');
+const enterWebsite=document.getElementById('enterWebsite');
+if(enterWebsite && welcomeScreen){
+  enterWebsite.addEventListener('click',()=>{
+    welcomeScreen.classList.add('hide');
+    setTimeout(()=>welcomeScreen.remove(),650);
+  });
+}
+</script>
+
 </body>
 </html>
