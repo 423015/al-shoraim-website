@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AL SHORAIM Mobile Communication & Photo Studio — All Digital Services Under One Roof.">
+<title>AL SHORAIM | Mobile Communication & Photo Studio</title>
+<style>
+:root{
+  --navy:#061a45; --blue:#0b45a5; --gold:#e9ad17; --gold2:#ffd75a;
+  --white:#fff; --soft:#f6f8fc; --ink:#10224a; --muted:#667085;
+  --shadow:0 18px 45px rgba(6,26,69,.13); --radius:22px;
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--soft)}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.topbar{background:var(--navy);color:#fff;font-size:14px;padding:9px 0}
+.topbar .container{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e8edf5}
+.navin{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brand img{width:54px;height:54px;object-fit:contain}
+.brand span{font-size:18px;line-height:1.05;color:var(--navy)}
+.brand small{display:block;color:#9a7410;font-size:11px;margin-top:5px}
+.navlinks{display:flex;gap:22px;align-items:center;font-weight:700;font-size:14px}
+.navlinks a:hover{color:var(--blue)}
+.cta{background:var(--navy);color:#fff;padding:12px 18px;border-radius:999px;font-weight:800;border:2px solid var(--gold)}
+.menu{display:none;border:0;background:var(--navy);color:#fff;border-radius:10px;padding:10px 13px;font-size:20px}
+.hero{background:
+ radial-gradient(circle at 82% 25%,rgba(233,173,23,.23),transparent 25%),
+ linear-gradient(135deg,#03133a,#0a3b8f 62%,#061a45);
+ color:#fff;padding:72px 0 65px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:45px;align-items:center}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,215,90,.55);color:var(--gold2);padding:8px 14px;border-radius:999px;font-weight:800;font-size:13px}
+h1{font-size:clamp(38px,5vw,67px);line-height:.98;margin:20px 0 18px;letter-spacing:-2px}
+.hero h1 span{color:var(--gold2)}
+.hero p{font-size:19px;line-height:1.65;color:#e7edff;max-width:680px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 21px;border-radius:12px;font-weight:900}
+.btn-gold{background:var(--gold);color:#08183c}
+.btn-light{border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.08)}
+.hero-logo{background:#fff;border-radius:30px;padding:18px;box-shadow:0 25px 70px rgba(0,0,0,.28);transform:rotate(1deg)}
+.hero-logo img{width:100%;display:block;border-radius:20px}
+.stats{margin-top:-28px;position:relative;z-index:3}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid #e8edf5;border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.stat{padding:22px;text-align:center;border-right:1px solid #edf0f6}
+.stat:last-child{border-right:0}.stat strong{display:block;font-size:25px;color:var(--navy)}.stat span{color:var(--muted);font-size:13px}
+section{padding:80px 0}.section-head{text-align:center;max-width:760px;margin:0 auto 42px}
+.kicker{color:#9a7410;text-transform:uppercase;font-weight:900;letter-spacing:2px;font-size:12px}
+h2{font-size:clamp(30px,4vw,45px);margin:9px 0 12px;color:var(--navy)}
+.section-head p{color:var(--muted);line-height:1.7}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid #e6ebf4;border-radius:18px;padding:23px;box-shadow:0 8px 25px rgba(8,30,72,.06);transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#f0c64d}
+.icon{width:48px;height:48px;border-radius:14px;background:#eef4ff;color:var(--blue);display:grid;place-items:center;font-size:23px;margin-bottom:14px}
+.card h3{margin:0 0 7px;font-size:18px;color:var(--navy)}.card p{margin:0;color:var(--muted);line-height:1.55;font-size:14px}
+.es{background:linear-gradient(135deg,#061a45,#0b45a5);color:#fff}
+.es h2{color:#fff}.es .section-head p{color:#dce6ff}
+.es-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.es .card{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.16);box-shadow:none;color:#fff}
+.es .card h3{color:#fff}.es .card p{color:#dce6ff}.es .icon{background:#fff;color:var(--navy)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:center}
+.poster{background:#fff;padding:10px;border-radius:24px;box-shadow:var(--shadow)}.poster img{width:100%;display:block;border-radius:16px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.check{background:#fff;border:1px solid #e7ecf4;border-radius:12px;padding:14px;font-weight:800;font-size:14px}
+.check b{color:#d59a00;margin-right:6px}
+.contact{background:#fff}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.contact-card{padding:28px;border-radius:20px;background:var(--soft);border:1px solid #e5eaf2}
+.contact-card h3{margin-top:0;color:var(--navy)}.contact-row{padding:12px 0;border-bottom:1px solid #e3e8f1}.contact-row:last-child{border-bottom:0}
+footer{background:#031331;color:#dce6ff;padding:32px 0}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot strong{color:#fff}
+.whatsapp{position:fixed;right:22px;bottom:22px;z-index:60;background:#16a34a;color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:27px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+@media(max-width:900px){
+ .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero-logo{max-width:560px;margin:auto}
+ .service-grid{grid-template-columns:repeat(2,1fr)}.es-grid{grid-template-columns:repeat(2,1fr)}
+ .stats-grid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid #edf0f6}
+ .navlinks{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;padding:18px 4%;flex-direction:column;align-items:flex-start;border-bottom:1px solid #ddd}
+ .navlinks.open{display:flex}.menu{display:block}
+}
+@media(max-width:560px){
+ .brand span{font-size:14px}.brand img{width:45px;height:45px}
+ .hero{padding:50px 0}.hero p{font-size:16px}.service-grid,.es-grid{grid-template-columns:1fr}
+ .stats-grid{grid-template-columns:1fr 1fr}.stat{padding:16px 8px}.stat strong{font-size:20px}
+ section{padding:58px 0}.checks{grid-template-columns:1fr}
+}
+
+.service-card{appearance:none;text-align:left;width:100%;cursor:pointer;font:inherit;position:relative}
+.service-card .learn{display:inline-block;margin-top:13px;color:#a87800;font-weight:900;font-size:12px}
+.es .service-card .learn{color:#ffd75a}
+.modal{display:none;position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-backdrop{position:absolute;inset:0;background:rgba(2,13,35,.76);backdrop-filter:blur(6px)}
+.modal-box{position:relative;width:min(650px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:26px;padding:34px;box-shadow:0 30px 100px rgba(0,0,0,.4);animation:pop .18s ease}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-close{position:absolute;right:16px;top:12px;width:40px;height:40px;border:0;border-radius:50%;background:#eef2f8;color:var(--navy);font-size:27px;cursor:pointer}
+.modal-icon{width:66px;height:66px;border-radius:19px;background:var(--navy);color:var(--gold2);display:grid;place-items:center;font-size:30px;margin-bottom:18px}
+.modal-kicker{font-size:11px;letter-spacing:2px;font-weight:900;color:#a87800}
+.modal-box h2{margin:7px 40px 7px 0;font-size:32px}
+.modal-sub{font-weight:900;color:var(--blue);margin-bottom:13px}
+.modal-box p{color:var(--muted);line-height:1.7}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.info-grid>div{background:var(--soft);border:1px solid #e6ebf4;border-radius:14px;padding:15px}
+.info-grid b{display:block;color:var(--navy);font-size:12px;text-transform:uppercase;margin-bottom:6px}
+.info-grid span{color:var(--muted);font-size:14px;line-height:1.45}
+.modal-wa{width:100%}
+@media(max-width:560px){.modal-box{padding:25px 20px}.modal-box h2{font-size:26px}.info-grid{grid-template-columns:1fr}}
+
+
+.service-tools{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-20px 0 26px;padding:12px 14px;background:#fff;border:1px solid #e6ebf4;border-radius:16px;box-shadow:0 8px 25px rgba(8,30,72,.05)}
+.service-search{display:flex;align-items:center;gap:10px;flex:1;max-width:500px;background:#f6f8fc;border:1px solid #e1e7f0;border-radius:12px;padding:0 14px}
+.service-search span{font-size:23px;color:#7b879b}
+.service-search input{width:100%;border:0;outline:0;background:transparent;padding:13px 0;font:inherit;color:var(--ink)}
+.service-hint{font-size:12px;font-weight:800;color:#77839a}
+.service-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.service-card:hover{transform:translateY(-7px) scale(1.01)}
+.service-card.hidden{display:none}
+.tech-strip{padding:28px 0;background:#061a45;color:#fff}
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tech-grid>div{padding:17px 16px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.05);display:grid;grid-template-columns:38px 1fr;column-gap:10px}
+.tech-grid span{grid-row:1/3;font-size:26px}
+.tech-grid strong{font-size:14px}.tech-grid small{color:#bfcdf0;margin-top:4px}
+@media(max-width:700px){.service-tools{align-items:stretch;flex-direction:column}.service-search{max-width:none}.tech-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.tech-grid{grid-template-columns:1fr}}
+
+
+/* AL SHORAIM premium technology layer */
+:root{--glow:rgba(255,215,90,.28)}
+body{background:#f5f8fd}
+.hero{position:relative}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent);pointer-events:none}
+.hero-grid,.stats{position:relative}
+.hero-logo{position:relative;overflow:hidden}
+.hero-logo:after{content:"";position:absolute;inset:-45%;background:linear-gradient(100deg,transparent 42%,rgba(255,255,255,.48) 50%,transparent 58%);transform:translateX(-60%) rotate(12deg);animation:shine 5s infinite}
+@keyframes shine{0%,55%{transform:translateX(-75%) rotate(12deg)}75%,100%{transform:translateX(75%) rotate(12deg)}}
+.badge{box-shadow:0 0 28px var(--glow)}
+.card{position:relative;overflow:hidden}
+.card:after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:.3s}
+.card:hover:after{transform:scaleX(1)}
+.icon{transition:.3s}
+.card:hover .icon{transform:translateY(-3px) rotate(-3deg)}
+.tech-strip{position:relative;overflow:hidden}
+.tech-strip:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(255,215,90,.12),transparent 22%),radial-gradient(circle at 85% 50%,rgba(255,255,255,.08),transparent 25%)}
+.tech-grid{position:relative}
+.tech-grid>div{transition:.25s}
+.tech-grid>div:hover{transform:translateY(-4px);border-color:rgba(255,215,90,.4)}
+.service-tools{position:sticky;top:88px;z-index:20;backdrop-filter:blur(12px);background:rgba(255,255,255,.92)}
+.service-search:focus-within{border-color:#0b45a5;box-shadow:0 0 0 4px rgba(11,69,165,.08)}
+.modal-box{border:1px solid #e7ecf5}
+.modal-box:before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:linear-gradient(90deg,var(--navy),var(--gold),var(--blue));border-radius:26px 26px 0 0}
+.whatsapp{animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 12px 30px rgba(0,0,0,.25),0 0 0 0 rgba(22,163,74,.35)}50%{box-shadow:0 12px 30px rgba(0,0,0,.25),0 0 0 12px rgba(22,163,74,0)}}
+.stat strong{transition:.3s}
+.stat:hover strong{transform:scale(1.04)}
+
+</style>
+</head>
+<body>
+<div class="topbar"><div class="container"><span>📍 Shop No. 1, Plot No. 164, Sector 6B Mehran Town, Korangi Industrial Area, Karachi</span><span>📞 0347-2836851</span></div></div>
+
+<nav>
+ <div class="container navin">
+  <a class="brand" href="#home"><img src="assets/logo.png" alt="AL SHORAIM Logo"><span>AL SHORAIM<small>Mobile Communication & Photo Studio</small></span></a>
+  <button class="menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">☰</button>
+  <div class="navlinks">
+   <a href="#home">Home</a><a href="#services">Services</a><a href="#esahulat">Nadra E-Sahulat</a><a href="#about">About</a><a href="#contact">Contact</a>
+   <a class="cta" href="https://wa.me/923472836851" target="_blank">WhatsApp</a>
+  </div>
+ </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+ <div class="container hero-grid">
+  <div>
+   <div class="badge">★ SINCE 2022 • SMART DIGITAL SERVICE CENTER</div>
+   <h1>Your Digital Work. <span>Done Smart.</span></h1>
+   <p>AL SHORAIM Mobile Communication & Photo Studio — your convenient place for digital services, printing, photo studio work, mobile accessories, Nadra E-Sahulat services and everyday documentation needs.</p>
+   <div class="hero-buttons"><a class="btn btn-gold" href="#services">Explore Services</a><a class="btn btn-light" href="https://wa.me/923472836851?text=Assalam-o-Alaikum%20AL%20SHORAIM%2C%20I%20want%20to%20ask%20about%20a%20service." target="_blank">💬 Ask on WhatsApp</a></div>
+  </div>
+  <div class="hero-logo"><img src="assets/logo.png" alt="AL SHORAIM Mobile Communication & Photo Studio"></div>
+ </div>
+</section>
+
+<div class="stats"><div class="container stats-grid">
+ <div class="stat"><strong>2022</strong><span>Serving Since</span></div>
+ <div class="stat"><strong>20+</strong><span>Listed Services</span></div>
+ <div class="stat"><strong>Nadra E-Sahulat</strong><span>Digital Facilitation</span></div>
+ <div class="stat"><strong>Fast</strong><span>Customer Service</span></div>
+</div></div>
+
+<section id="services">
+ <div class="container">
+  <div class="section-head"><div class="kicker">What We Do</div><h2>Our Services</h2><p>Har service par click karke uski detail, use-case aur service information dekhein.</p></div>
+<div class="service-tools">
+ <div class="service-search">
+  <span>⌕</span><input id="serviceSearch" type="search" placeholder="Search a service..." aria-label="Search services">
+ </div>
+ <div class="service-hint">Click any service for full information</div>
+</div>
+
+  <div class="service-grid">
+<button class="card service-card" type="button" data-title="Passport Size Pictures" data-sub="Nadra, Passport &amp; Visa" data-desc="Professional passport-size photos prepared for official document needs." data-use="Passport, visa and official document photo needs." data-detail="We can guide you on the required photo size/background for your document.">
+<div class="icon">📸
+<button class="card service-card" type="button" data-title="Stamp Paper Printing" data-sub="Stamp paper service" data-desc="Stamp paper printing and related document preparation for suitable requirements." data-use="Agreements and document requirements" data-detail="Bring the required information and document details. Availability and requirements may vary by document type.">
+<div class="icon">📜</div><h3>Stamp Paper Printing</h3><p>Stamp paper service</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Certificate Printing" data-sub="Professional certificate printing" data-desc="Clean, professional certificate printing for suitable personal, academic and organizational requirements." data-use="Certificates and official-looking documents" data-detail="Provide the final text/design and required size. We can prepare the print according to the supplied content.">
+<div class="icon">🏅</div><h3>Certificate Printing</h3><p>Professional certificate printing</p><span class="learn">View service details →</span>
+</button>
+</div><h3>Passport Size Pictures</h3><p>Nadra, Passport &amp; Visa</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="CNIC, Passport, Visa &amp; Job Application Photos" data-sub="Official &amp; job application photos" data-desc="Photo service for CNIC, passport, visa and employment applications." data-use="Official documents and job applications." data-detail="Clean framing and background preparation for application photos.">
+<div class="icon">🪪</div><h3>CNIC, Passport, Visa &amp; Job Application Photos</h3><p>Official &amp; job application photos</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="School &amp; College ID Photos" data-sub="Student ID photos" data-desc="ID-photo service for schools, colleges and student cards." data-use="School, college and student identification." data-detail="Suitable for student ID cards and academic records.">
+<div class="icon">🎓</div><h3>School &amp; College ID Photos</h3><p>Student ID photos</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Instant Photo Printing" data-sub="Quick photo prints" data-desc="Get your selected photos printed for personal or official use." data-use="Instant photo printing." data-detail="Bring your photo digitally or have it prepared in the studio.">
+<div class="icon">🖨️</div><h3>Instant Photo Printing</h3><p>Quick photo prints</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Document Scanning, Photocopy &amp; Printing" data-sub="Documents &amp; copies" data-desc="Scanning, photocopying and document printing in one place." data-use="Forms, documents, applications and copies." data-detail="Black &amp; white and color document work as required.">
+<div class="icon">📄</div><h3>Document Scanning, Photocopy &amp; Printing</h3><p>Documents &amp; copies</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Photo Editing &amp; Background Change" data-sub="Photo editing" data-desc="Photo cleanup and background-change service for suitable images." data-use="Official photos and general photo editing." data-detail="Ask us about the background or editing requirement before processing.">
+<div class="icon">✨</div><h3>Photo Editing &amp; Background Change</h3><p>Photo editing</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Mobile Accessories" data-sub="Mobile essentials" data-desc="Mobile accessories available at the shop." data-use="Everyday mobile accessory needs." data-detail="Visit the shop for currently available accessories.">
+<div class="icon">📱</div><h3>Mobile Accessories</h3><p>Mobile essentials</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Application Forms &amp; CV Resumes" data-sub="Forms &amp; CVs" data-desc="Application forms and CV/resume preparation assistance." data-use="Job applications, CVs and forms." data-detail="Bring your details/documents and we can help prepare the required format.">
+<div class="icon">📝</div><h3>Application Forms &amp; CV Resumes</h3><p>Forms &amp; CVs</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Photocopy, Color Copy, CV, Applications etc." data-sub="Copy &amp; document work" data-desc="Photocopy, color copy, CV and application-related work." data-use="Everyday document requirements." data-detail="Useful for office, school, college and job-application documents.">
+<div class="icon">✉️</div><h3>Photocopy, Color Copy, CV, Applications etc.</h3><p>Copy &amp; document work</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="PVC ID Cards" data-sub="Student, Job, Clinic, etc." data-desc="PVC ID-card preparation and printing for suitable requirements." data-use="Student, job and clinic cards." data-detail="Provide the required information/design for card preparation.">
+<div class="icon">🪪</div><h3>PVC ID Cards</h3><p>Student, Job, Clinic, etc.</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Scan &amp; Email" data-sub="Digital document delivery" data-desc="Scan documents and send them by email." data-use="Applications, documents and digital copies." data-detail="Bring the document and email details.">
+<div class="icon">📧</div><h3>Scan &amp; Email</h3><p>Digital document delivery</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Railway Ticket Booking" data-sub="Ticket booking" data-desc="Railway ticket booking assistance." data-use="Travel booking requirements." data-detail="Ask about route/date availability before booking.">
+<div class="icon">🚆</div><h3>Railway Ticket Booking</h3><p>Ticket booking</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Electricity, Gas &amp; Utility Bill Payments" data-sub="Utility payments" data-desc="Electricity, gas and utility bill payment service." data-use="Everyday household utility payments." data-detail="Bring the relevant bill/reference details.">
+<div class="icon">💡</div><h3>Electricity, Gas &amp; Utility Bill Payments</h3><p>Utility payments</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="All Government Fees Payments" data-sub="Government fee payments" data-desc="Assistance with available government fee payments." data-use="Government applications and fee requirements." data-detail="Bring the relevant challan/reference details.">
+<div class="icon">🏛️</div><h3>All Government Fees Payments</h3><p>Government fee payments</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Normal Stapler Binding" data-sub="Document binding" data-desc="Simple stapler binding for documents and papers." data-use="Short documents and applications." data-detail="Suitable for everyday document sets.">
+<div class="icon">📎</div><h3>Normal Stapler Binding</h3><p>Document binding</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Books Binding" data-sub="Book/document binding" data-desc="Binding service for books and larger document sets." data-use="Books, notes and document sets." data-detail="Ask about the available binding style and size.">
+<div class="icon">📚</div><h3>Books Binding</h3><p>Book/document binding</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Lamination" data-sub="Document protection" data-desc="Protect documents and cards with lamination." data-use="Certificates, cards, papers and documents." data-detail="Bring the original/print-ready document.">
+<div class="icon">🪪</div><h3>Lamination</h3><p>Document protection</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Soft Coating" data-sub="Surface protection" data-desc="Soft-coating service for suitable printed items." data-use="Selected cards and printed materials." data-detail="Ask us whether your item is suitable before processing.">
+<div class="icon">🪄</div><h3>Soft Coating</h3><p>Surface protection</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Pana Flex Banner Printing" data-sub="Banner printing" data-desc="Pana flex banner printing for suitable sizes and designs." data-use="Shop, event and promotional banners." data-detail="Provide your design/content and required size.">
+<div class="icon">🖼️</div><h3>Pana Flex Banner Printing</h3><p>Banner printing</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Visiting Card Printing" data-sub="Business cards" data-desc="Visiting card printing for personal and business use." data-use="Professional contact/business cards." data-detail="Provide your name, contact details and design/content.">
+<div class="icon">💳</div><h3>Visiting Card Printing</h3><p>Business cards</p><span class="learn">View service details →</span>
+</button>
+  </div>
+ </div>
+</section>
+
+<section id="esahulat" class="es">
+ <div class="container">
+  <div class="section-head"><div class="kicker" style="color:#ffd75a">Nadra E-Sahulat</div><h2>Nadra Nadra E-Sahulat Services</h2><p>Our current website list includes the eight Nadra E-Sahulat services you selected.</p></div>
+  <div class="es-grid">
+<button class="card service-card" type="button" data-title="Biometric Verification" data-sub="Biometric verification service" data-desc="Biometric verification assistance through the available Nadra E-Sahulat service." data-use="Nadra E-Sahulat biometric facilitation." data-detail="Required identity/document information may be needed.">
+<div class="icon">👆</div><h3>Biometric Verification</h3><p>Biometric verification service</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="CNIC Verification" data-sub="CNIC verification" data-desc="CNIC verification assistance through the available service." data-use="Identity/CNIC verification." data-detail="Required CNIC details/document may be needed.">
+<div class="icon">🪪</div><h3>CNIC Verification</h3><p>CNIC verification</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Vehicle Biometric / Transfer-Related Verification" data-sub="Vehicle verification" data-desc="Vehicle biometric and transfer-related verification assistance." data-use="Vehicle transfer-related verification." data-detail="Required vehicle and identity documents may be needed.">
+<div class="icon">🚗</div><h3>Vehicle Biometric / Transfer-Related Verification</h3><p>Vehicle verification</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Token Tax / Government Fee Payments" data-sub="Government payments" data-desc="Token tax and available government fee payment assistance." data-use="Token tax and government payment needs." data-detail="Relevant vehicle/challan/reference details may be needed.">
+<div class="icon">🏛️</div><h3>Token Tax / Government Fee Payments</h3><p>Government payments</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Utility Bill Payments" data-sub="Utility payments" data-desc="Utility bill payment assistance through the available service." data-use="Electricity, gas and utility payment needs." data-detail="Current bill/reference information may be needed.">
+<div class="icon">💡</div><h3>Utility Bill Payments</h3><p>Utility payments</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Government Fee Collection" data-sub="Fee collection" data-desc="Available government fee collection/payment assistance." data-use="Government fee payment needs." data-detail="Relevant application or payment reference may be needed.">
+<div class="icon">💰</div><h3>Government Fee Collection</h3><p>Fee collection</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="FBR-Related Biometric / Verification Services" data-sub="FBR-related services" data-desc="FBR-related biometric or verification assistance where available." data-use="FBR-related verification needs." data-detail="Required FBR/application information may be needed.">
+<div class="icon">🧾</div><h3>FBR-Related Biometric / Verification Services</h3><p>FBR-related services</p><span class="learn">View service details →</span>
+</button>
+<button class="card service-card" type="button" data-title="Other Available Nadra E-Sahulat Payments &amp; Services" data-sub="Available Nadra E-Sahulat services" data-desc="Other services available at this franchise may vary by service availability." data-use="Other available Nadra E-Sahulat needs." data-detail="Ask at the shop about the service you need.">
+<div class="icon">➕</div><h3>Other Available Nadra E-Sahulat Payments &amp; Services</h3><p>Available Nadra E-Sahulat services</p><span class="learn">View service details →</span>
+</button>
+  </div>
+ </div>
+</section>
+
+
+<section class="tech-strip">
+ <div class="container tech-grid">
+  <div><span>⚡</span><strong>Fast Workflow</strong><small>Quick digital service handling</small></div>
+  <div><span>🔐</span><strong>Customer Focused</strong><small>Clear service information</small></div>
+  <div><span>📲</span><strong>WhatsApp Ready</strong><small>Ask about any service instantly</small></div>
+  <div><span>🖨️</span><strong>Print & Digital</strong><small>From documents to photos</small></div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container about-grid">
+  <div class="poster"><img src="assets/services-poster.png" alt="AL SHORAIM services poster"></div>
+  <div>
+   <div class="kicker">About AL SHORAIM</div><h2>One Place. Many Digital Services.</h2>
+   <p style="color:var(--muted);line-height:1.8">AL SHORAIM Mobile Communication & Photo Studio brings everyday digital, documentation, printing, photo studio and facilitation services together under one roof.</p>
+   <div class="checks">
+    <div class="check"><b>✓</b> Fast Service</div><div class="check"><b>✓</b> Best Quality</div>
+    <div class="check"><b>✓</b> Convenient Location</div><div class="check"><b>✓</b> Helpful Support</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="contact" class="contact">
+ <div class="container">
+  <div class="section-head"><div class="kicker">Visit Us</div><h2>Contact AL SHORAIM</h2><p>Need a service? Call or message us before visiting.</p></div>
+  <div class="contact-grid">
+   <div class="contact-card"><h3>📍 Shop Address</h3><div class="contact-row">Shop No. 1, Plot No. 164</div><div class="contact-row">Sector 6B Mehran Town</div><div class="contact-row">Korangi Industrial Area, Karachi</div></div>
+   <div class="contact-card"><h3>📞 Call / WhatsApp</h3><div class="contact-row"><strong>0347-2836851</strong></div><div class="contact-row">WhatsApp available for service inquiries</div><div style="margin-top:18px"><a class="btn btn-gold" href="https://wa.me/923472836851" target="_blank">💬 Message on WhatsApp</a></div></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<div class="modal" id="serviceModal" aria-hidden="true">
+ <div class="modal-backdrop" data-close="1"></div>
+ <div class="modal-box" role="dialog" aria-modal="true">
+  <button class="modal-close" aria-label="Close" data-close="1">×</button>
+  <div class="modal-icon" id="modalIcon">★</div>
+  <div class="modal-kicker">SERVICE INFORMATION</div>
+  <h2 id="modalTitle">Service</h2>
+  <div class="modal-sub" id="modalSub"></div>
+  <p id="modalDesc"></p>
+  <div class="info-grid">
+   <div><b>Best for</b><span id="modalUse"></span></div>
+   <div><b>How we help</b><span id="modalDetail"></span></div>
+  </div>
+  <a class="btn btn-gold modal-wa" id="modalWa" target="_blank">💬 Ask About This Service</a>
+ </div>
+</div>
+
+<footer><div class="container foot"><div><strong>AL SHORAIM MOBILE COMMUNICATION & PHOTO STUDIO</strong><br><span>All Digital Services Under One Roof • Since 2022</span></div><div>Fast Service • Best Quality • Best Price</div></div></footer>
+<a class="whatsapp" href="https://wa.me/923472836851" target="_blank" aria-label="WhatsApp">☏</a>
+<script>
+const navLinks=document.querySelectorAll('.navlinks a');
+navLinks.forEach(a=>a.addEventListener('click',()=>document.querySelector('.navlinks').classList.remove('open')));
+
+const modal=document.getElementById('serviceModal');
+const title=document.getElementById('modalTitle'), sub=document.getElementById('modalSub'),
+desc=document.getElementById('modalDesc'), use=document.getElementById('modalUse'),
+detail=document.getElementById('modalDetail'), wa=document.getElementById('modalWa'),
+icon=document.getElementById('modalIcon');
+
+function openService(card){
+ title.textContent=card.dataset.title; sub.textContent=card.dataset.sub||'';
+ desc.textContent=card.dataset.desc||''; use.textContent=card.dataset.use||'';
+ detail.textContent=card.dataset.detail||'';
+ icon.textContent=card.querySelector('.icon').textContent.trim();
+ wa.href='https://wa.me/923472836851?text='+encodeURIComponent(
+   'Assalam-o-Alaikum AL SHORAIM, mujhe "'+card.dataset.title+'" service ke bare mein maloomat chahiye.'
+ );
+ modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+ document.body.style.overflow='hidden';
+}
+document.querySelectorAll('.service-card').forEach(card=>card.addEventListener('click',()=>openService(card)));
+
+document.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click',()=>{
+ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='';
+}));
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape'){modal.classList.remove('open');document.body.style.overflow='';}
+});
+
+const search=document.getElementById('serviceSearch');
+if(search){
+ search.addEventListener('input',()=>{
+   const q=search.value.trim().toLowerCase();
+   document.querySelectorAll('.service-card').forEach(card=>{
+     card.classList.toggle('hidden', q && !card.innerText.toLowerCase().includes(q));
+   });
+ });
+}
+
+const counterEls=document.querySelectorAll('.stat strong');
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(!entry.isIntersecting || entry.target.dataset.done) return;
+  entry.target.dataset.done='1';
+  const el=entry.target, text=el.textContent.trim();
+  const m=text.match(/^(\d+)(.*)$/);
+  if(!m) return;
+  const target=Number(m[1]), suffix=m[2], duration=900, start=performance.now();
+  function tick(now){
+   const p=Math.min((now-start)/duration,1);
+   const eased=1-Math.pow(1-p,3);
+   el.textContent=Math.round(target*eased)+suffix;
+   if(p<1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+ });
+},{threshold:.35});
+counterEls.forEach(el=>observer.observe(el));
+
+</script>
+</body>
+</html>
